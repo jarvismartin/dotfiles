@@ -5,17 +5,14 @@ call plug#begin('~/.config/nvim/plugs')
 " Plugins
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sbdchd/neoformat'
-
-" Plug 'othree/yajs.vim'
-" Plug 'othree/html5.vim'
-" Plug 'HerringtonDarkholme/yats.vim'
-" Plug 'nestorsalceda/vim-strip-trailing-whitespaces'
-" Plug 'tpope/vim-surround'
-" Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
+Plug 'scrooloose/nerdcommenter'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Always load vim-devicons LAST!!!
 Plug 'ryanoasis/vim-devicons'
@@ -40,9 +37,11 @@ let g:airline_theme='oceanicnext'
 
 " Nerdtree
 nmap <C-n> :NERDTreeToggle<CR>
+" Nerd Commenter
+filetype plugin on
 
 " EasyMotion
-" map <Leader> <Plug>(easymotion-prefix)
+map <Leader> <Plug>(easymotion-prefix)
 
 " Underline current line
 set cursorline
@@ -55,5 +54,10 @@ set copyindent
 set preserveindent
 
 " 4-space tabs
-set tabstop=4
-set shiftwidth=0
+set tabstop=4 shiftwidth=4 expandtab
+
+" Strip Trailing White Space on Save
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
+autocmd BufWritePre     *.* :call TrimWhiteSpace()
