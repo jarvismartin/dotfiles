@@ -1,0 +1,253 @@
+{
+  // coc settting
+  "coc.preferences.snippets.enable": true,
+  "coc.preferences.snippetStatusText": "",
+  "coc.preferences.formatOnType": false,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "svg",    // coc-svg support svg format
+    "dart",   // diagnostic-languageserver support dart format
+    "elixir", // diagnostic-languageserver support elixir format
+    "eelixir" // diagnostic-languageserver support elixir format
+  ],
+
+  "npm.binPath": "cnpm",
+
+  // diagnostic
+  "diagnostic.infoSign":            "ღ",
+  "diagnostic.hintSign":            "ஐ",
+  "diagnostic.warningSign":         "⚠",
+  "diagnostic.errorSign":           "✖",
+  "diagnostic.enable":              true,
+  "diagnostic.signOffset":          9999999,
+  "diagnostic.highlightOffset":     9999999,
+  "diagnostic.refreshOnInsertMode": true,
+
+  // suggest
+  "suggest.detailField": "abbr",
+  "suggest.maxCompleteItemCount": 50,
+  "suggest.maxPreviewWidth": 80,
+  "suggest.triggerAfterInsertEnter": false,
+  "suggest.detailMaxLength": 30,
+  "suggest.completionItemKindLabels": {
+    "keyword":       "\uf1de",
+    "variable":      "\ue79b",
+    "value":         "\uf89f",
+    "operator":      "\u03a8",
+    "function":      "\u0192",
+    "reference":     "\ufa46",
+    "constant":      "\uf8fe",
+    "method":        "\uf09a",
+    "struct":        "\ufb44",
+    "class":         "\uf0e8",
+    "interface":     "\uf417",
+    "text":          "\ue612",
+    "enum":          "\uf435",
+    "enumMember":    "\uf02b",
+    "module":        "\uf40d",
+    "color":         "\ue22b",
+    "property":      "\ue624",
+    "field":         "\uf9be",
+    "unit":          "\uf475",
+    "event":         "\ufacd",
+    "file":          "\uf723",
+    "folder":        "\uf114",
+    "snippet":       "\ue60b",
+    "typeParameter": "\uf728",
+    "default":       "\uf29c"
+  },
+
+  "explorer.icon.expanded": "▾",
+  "explorer.icon.shrinked": "▸",
+  "explorer.icon.enableNerdfont": true,
+
+  // html
+  "html.suggest.angular1": false,   // angular1 is outdate, coc-angular support better
+
+  // coc source
+  "coc.source.around.firstMatch": false,
+  "coc.source.buffer.firstMatch": false,
+  "coc.source.word.filetypes": [
+    "markdown",
+    "gitcommit",
+    "gina-commit"
+  ],
+
+  // snippets
+  "snippets.ultisnips.enable": true,
+  /* "snippets.textmateSnippetsRoots": [
+    "~/.configrc/textmate-snippets"
+  ], */
+  "snippets.extends": {
+    "typescript": ["javascript"],
+    "javascriptreact": ["javascript"]
+  },
+
+  // emmet
+  "emmet.showAbbreviationSuggestions": false,
+  "emmet.includeLanguages": {
+    "jsm": "javascript"
+  },
+
+  // prettier
+  "prettier.eslintIntegration": true,
+  "prettier.tslintIntegration": true,
+  "prettier.stylelintIntegration": true,
+  "prettier.statusItemText": "",
+
+  // eslint
+  "eslint.filetypes": [
+    "javascript",
+    "javascript.jsx",
+    "javascriptreact"
+  ],
+  "eslint.autoFix": true,
+  "eslint.autoFixOnSave": true,
+
+  // tslint
+  "tslint.autoFixOnSave": true,
+
+  // pairs
+  "pairs.enableCharacters": [
+    "(",
+    "[",
+    "{",
+    "'",
+    "\"",
+    "`"
+  ],
+
+  // coc-yank
+  "yank.priority": 70,
+  "yank.highlight.duration": 200,
+
+  // vimlsp
+  "vimlsp.indexes.runtimepath": true,
+  "vimlsp.indexes.gap": 10,
+  "vimlsp.indexes.count": 3,
+  "vimlsp.suggest.fromVimruntime": true,
+  "vimlsp.suggest.fromRuntimepath": false,
+
+  // diagnostic-languageserver
+  "diagnostic-languageserver.filetypes": {
+    "email":    "languagetool",
+    "markdown": [ "write-good", "markdownlint" ],
+    "sh":       "shellcheck",
+    "elixir":   ["mix_credo", "mix_credo_compile"],
+    "eelixir":  ["mix_credo", "mix_credo_compile"]
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "dart":    "dartfmt",
+    "elixir":  "mix_format",
+    "eelixir": "mix_format"
+  },
+
+  // git
+  "git.enableGutters":             true,
+  "git.signOffset":                99,
+  "git.addGlameToVirtualText":     true,
+  "git.virtualTextPrefix":         "     ",
+  "git.branchCharacter":           "\uf418",
+  "git.addedSign.text":            "▏",
+  "git.changedSign.text":          "▏",
+  "git.removedSign.text":          "▏",
+  "git.topRemovedSign.text":       "‾",
+  "git.changeRemovedSign.text":    "≃",
+  "git.addedSign.hlGroup":         "GitAddHi",
+  "git.changedSign.hlGroup":       "GitModifyHi",
+  "git.removedSign.hlGroup":       "GitDeleteHi",
+  "git.topRemovedSign.hlGroup":    "GitDeleteHi",
+  "git.changeRemovedSign.hlGroup": "GitDeleteHi",
+
+  // list
+  "session.directory": "~/.vimbackupfile",
+
+  // imselect
+  "imselect.defaultInput": "com.apple.keylayout.ABC",
+  "imselect.enableStatusItem": false,
+
+  // coc-gitignore
+  "gitignore.templates.patch": {
+    "Node": "out/"
+  },
+
+
+  // smartf
+  "smartf.wordJump": false,
+  "smartf.jumpOnTrigger": true,
+  "smartf.charactersIgnoreByNavigator": [
+    "a",
+    "A",
+    "i",
+    "I",
+    "d",
+    "D",
+    "c",
+    "C",
+    "s",
+    "S",
+    "x",
+    "r",
+    "y",
+    "p",
+    "P",
+    "v",
+    "g",
+    "h",
+    "j",
+    "k",
+    "l",
+    "*",
+    "%"
+  ],
+
+  // languageserver
+  "languageserver": {
+    "sh": {
+      "command": "bash-language-server",
+      "args": ["start", "--stdio"],
+      "filetypes": ["sh"],
+      "cwd": "./",
+      "initializationOptions": {},
+      "ignoredRootPaths": ["~"],
+      "settings": {}
+    },
+    "dockerfile": {
+      "command": "docker-langserver",
+      "filetypes": ["dockerfile"],
+      "args": ["--stdio"]
+    },
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "objc", "objcpp"],
+      "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+      "initializationOptions": {
+        "cache": {
+          "directory": "/tmp/ccls"
+        }
+      }
+    },
+    "golang": {
+      "command": "bingo",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
+    },
+    /* "vimlsp": { */
+      /* "module": "/Users/aioiyuuko/my/vim-language-server/bin/index.js", */
+      /* "args": ["--node-ipc"], */
+      /* "initializationOptions": { */
+        /* "runtimepath": "/Users/aioiyuuko/.config/nvim,/Users/aioiyuuko/.configrc/nvim/viml/plugins/coc.nvim/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/vim-jsx-improve/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/jsonc.vim/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/typescript-vim/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/vim-tsx/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/dart-vim-plugin/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/vim-vue/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/vim-fish/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/vim-stylus/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/vim-markdown/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/vim-elixir/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/vim-editorconfig/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/markdown-preview.nvim/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/words.vim/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/emmet-vim/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/vim-commentary/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/vim-mundo/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/neoterm/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/codi.vim/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/vim-quickrun/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/helpful.vim/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/startuptime.vim/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/vader.vim/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/traces.vim/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/hot-reload.vim/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/vim-easy-align/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/vim-expand-region/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/vim-surround/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/vim-repeat/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/vim-textobj-user/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/vim-textobj-delimited/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/vim-swap/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/vim-lighttree/,/Users/aioiyuuko/.fzf/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/fzf.vim/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/goyo.vim/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/limelight.vim/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/lightline.vim/,/Users/aioiyuuko/.configrc/nvim/viml/plugins/gruvbox-material/,/etc/xdg/nvim,/Users/aioiyuuko/.local/share/nvim/site,/usr/local/share/nvim/site,/usr/share/nvim/site,/usr/local/Cellar/neovim/HEAD-24fb7ee_2/share/nvim/runtime,/usr/local/Cellar/neovim/HEAD-24fb7ee_2/share/nvim/runtime/pack/dist/opt/matchit,/usr/share/nvim/site/after,/usr/local/share/nvim/site/after,/Users/aioiyuuko/.local/share/nvim/site/after,/etc/xdg/nvim/after,/Users/aioiyuuko/.configrc/nvim/viml/plugins/vim-jsx-improve/after,/Users/aioiyuuko/.configrc/nvim/viml/plugins/vim-tsx/after,/Users/aioiyuuko/.config/nvim/after", */
+        /* "vimruntime": "/usr/local/Cellar/neovim/HEAD-24fb7ee_2/share/nvim/runtime", */
+        /* "diagnostic": { */
+          /* "enable": true */
+        /* }, */
+        /* "suggest": { */
+          /* "fromRuntimepath": false, */
+          /* "fromVimruntime": true */
+        /* } */
+      /* }, */
+      /* "filetypes": [ "vim" ], */
+      /* "trace.server": "verbose" */
+    /* } */
+  }
+  // vim:ft=jsonc
+}
