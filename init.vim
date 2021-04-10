@@ -1,29 +1,68 @@
 "From https://medium.com/better-programming/setting-up-neovim-for-web-development-in-2020-d800de3efacd
 call plug#begin("~/.vim/plugged")
-  " Plugin Section
-  Plug 'dracula/vim'
-  Plug 'scrooloose/nerdtree'
-  Plug 'preservim/nerdcommenter'
-  Plug 'ryanoasis/vim-devicons'
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  Plug 'junegunn/fzf.vim'
-  Plug 'leafgarland/typescript-vim'
-  Plug 'peitalin/vim-jsx-typescript'
-  Plug 'sheerun/vim-polyglot'
-  " Plug 'evanleck/vim-svelte'
-  Plug 'leafOfTree/vim-svelte-plugin'
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plugin Section
+Plug 'morhetz/gruvbox'
+Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdcommenter'
+Plug 'ryanoasis/vim-devicons'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'leafOfTree/vim-svelte-plugin'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'xojs/vim-xo'
+Plug 'vim-syntastic/syntastic'
+Plug 'Chiel92/vim-autoformat'
+
+" vim-markdown-composer
+function! BuildComposer(info)
+  if a:info.status != 'unchanged' || a:info.force
+    if has('nvim')
+      !cargo build --release --locked
+    else
+      !cargo build --release --locked --no-default-features --features json-rpc
+    endif
+  endif
+endfunction
+
+Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+
 call plug#end()
+
 "Config Section
 
 " CoC
-let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-eslint']
+let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-tsserver', 'coc-svelte']
 
-if (has("termguicolors"))
- set termguicolors
-endif
-syntax enable
-colorscheme dracula
+" Important!!
+" if has('termguicolors')
+" set termguicolors
+" endif
+
+" For dark version.
+set background=dark
+
+" For light version.
+" set background=light
+
+" Set contrast.
+" This configuration option should be placed before `colorscheme gruvbox-material`.
+" Available values: 'hard', 'medium'(default), 'soft'
+" let g:gruvbox_material_background = 'soft'
+
+colorscheme gruvbox
+
+" " Delete whitespace on save
+" autocmd BufWritePre * :%s/\s\+$//e
+" " tabs -> spaces
+" set tabstop=2 shiftwidth=2 expandtab
+
+" treat all *.svelte files as HTML
+" au! BufNewFile,BufRead *.svelte set ft=html
 
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1
@@ -67,15 +106,15 @@ nnoremap <A-l> <C-w>l
 
 nnoremap <C-p> :FZF<CR>
 let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-s': 'split',
-  \ 'ctrl-v': 'vsplit'
-  \}
+      \ 'ctrl-t': 'tab split',
+      \ 'ctrl-s': 'split',
+      \ 'ctrl-v': 'vsplit'
+      \}
 
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
-" Handle .jsm files
-autocmd BufRead,BufNewFile *.jsm set filetype=javascript
+" " Handle .jsm files
+" autocmd BufRead,BufNewFile *.jsm set filetype=javascript
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -85,11 +124,13 @@ set nobackup
 set nowritebackup
 
 set showmatch           " Show matching brackets.
-set number              " Show the line numbers on the left side.
+" set number              " Show the line numbers on the left side.
 set formatoptions+=o    " Continue comment marker in new lines.
-set expandtab           " Insert spaces when TAB is pressed.
-set tabstop=4           " Render TABs using this many spaces.
-set shiftwidth=4        " Indentation amount for < and > commands.
+" set expandtab           " Insert spaces when TAB is pressed.
+" set tabstop=4           " Render TABs using this many spaces.
+" set shiftwidth=4        " Indentation amount for < and > commands.
+
+set cursorline
 
 " Remap Esc
 :imap jk <Esc>
@@ -100,3 +141,12 @@ set path+=**
 
 " Display all matching files when we tab complete
 set wildmenu
+
+" Lint with XO via Syntastic
+let g:syntastic_javascript_checkers = ['xo']
+
+" vim-autoformat requires path to python executable
+let g:python3_host_prog='/usr/bin/python3'
+
+" Use Python3 interpreter in python-mode
+let g:pymode_python = 'python3'
